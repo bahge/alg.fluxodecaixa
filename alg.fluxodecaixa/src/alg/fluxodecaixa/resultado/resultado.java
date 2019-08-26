@@ -3,7 +3,7 @@ package alg.fluxodecaixa.resultado;
 public abstract class resultado {
     private float valor;
     private int mes;
-
+    //Alteração
     public float getValor() {
         return valor;
     }

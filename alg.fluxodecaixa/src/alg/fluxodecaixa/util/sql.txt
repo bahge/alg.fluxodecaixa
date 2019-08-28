@@ -14,11 +14,11 @@ VALUES
 ('teste', '123', 'Longfellow Dids', 1, 1, 'teste@teste.com');
 
 CREATE TABLE resultados (
-	id serial PRIMARY KEY,
-	classificacao int,
-	tipo int,
-	valor float,
-	ano int,
-	mes int,
-	id_user int
-	);
+    id serial PRIMARY KEY,
+    classificacao int,
+    tipo int,
+    valor float,
+    ano int,
+    mes int,
+    id_user int
+);

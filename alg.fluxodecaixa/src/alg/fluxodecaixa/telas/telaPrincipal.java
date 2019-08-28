@@ -187,7 +187,8 @@ public void validarLogin(){
     System.out.println(r);
     // Se nível é 0 então é Administrador
     if (r == 0) {
-        // Abertura da tela Administrativa
+        telaAdministracao telaAdm = new telaAdministracao();
+        telaAdm.setVisible(true);
         this.setVisible(false);
     // Se nível é maior que 0 então é Usuario
     } else if (r > 0) {

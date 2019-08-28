@@ -183,16 +183,17 @@ public void validarLogin(){
     loginusuario.setSenha(new String(txtSenha.getPassword()));
     // Atribui a variavel r, o retorno da função de logar da Classe UsuarioDAO
     // o retorno será o nível do usuário cadastrado no Banco de dados
-    int r = usuariodao.logar(loginusuario);
-    System.out.println(r);
+    int r[] = usuariodao.logar(loginusuario);
+    System.out.println(r[0] +"\n" + r[1]);
     // Se nível é 0 então é Administrador
-    if (r == 0) {
+    if (r[0] == 0) {
         telaAdministracao telaAdm = new telaAdministracao();
         telaAdm.setVisible(true);
         this.setVisible(false);
     // Se nível é maior que 0 então é Usuario
-    } else if (r > 0) {
+    } else if (r[0] > 0) {
         telaUsuario telaUser = new telaUsuario();
+        telaUser.setId_user(r[1]);
         telaUser.setVisible(true);
         this.setVisible(false);
     // Se nível é menor que 0 então o usuário não foi encontrado no 

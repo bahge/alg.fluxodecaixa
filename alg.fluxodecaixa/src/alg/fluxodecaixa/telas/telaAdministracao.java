@@ -89,7 +89,6 @@ public class telaAdministracao extends JFrame implements ActionListener {
 
     }
 
-    
     //Eventos do Menu
     @Override
     public void actionPerformed(ActionEvent evt) {
@@ -124,11 +123,6 @@ public class telaAdministracao extends JFrame implements ActionListener {
         }
         // Evento do SubMenu Editar Usuário
         if (evt.getSource() == jmitEditUsuarios) {
-            if (telaListarUsuario.isVisible()){
-                telaListarUsuario.setVisible(false);
-                telaListarUsuario = null;        
-            }
-
             telaEditarUsuario = null;
             String resposta = (String) JOptionPane.showInputDialog(
                     null,
@@ -171,10 +165,7 @@ public class telaAdministracao extends JFrame implements ActionListener {
         
         // Evento do SubMenu Apagar Usuário
         if (evt.getSource() == jmitDeleteUsuarios) {
-            if (telaListarUsuario.isVisible()){
-                telaListarUsuario.setVisible(false);
-                telaListarUsuario = null;        
-            }
+            telaEditarUsuario = null;
             String resposta = (String) JOptionPane.showInputDialog(
                     null,
                     "Qual o Id do usuário?",
@@ -259,7 +250,7 @@ class Tela extends JInternalFrame {
     private Color           backApp      = new Color( 0, 123, 255);
     private JTable          tbUsuario = new JTable();
 
-   private telaAdministracao telaAdministracao;
+    private telaAdministracao telaAdministracao;
     // Barra de Ferramentas - menu para aplicação                           
     private JMenuBar     jmbPrincipal       = new JMenuBar();
     // Menu Arquivo
@@ -618,8 +609,8 @@ class Tela extends JInternalFrame {
             "Sucesso",
             JOptionPane.INFORMATION_MESSAGE
             );
-            setVisible(false);
             preencherTabelaUsuario(tbUsuario);
+            setVisible(false);
         }
     }
     private void resetCampos(){

@@ -5,6 +5,9 @@
  */
 package alg.fluxodecaixa.telas;
 
+import alg.fluxodecaixa.resultado.receita.receita;
+import alg.fluxodecaixa.resultado.resultado;
+
 /**
  *
  * @author bahge
@@ -63,6 +66,11 @@ public class telaReceita extends javax.swing.JFrame {
         jcboTipoReceita.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Trabalhistas", "Patrimoniais" }));
 
         bttSalvarReceita.setText("Salvar");
+        bttSalvarReceita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttSalvarReceitaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +124,21 @@ public class telaReceita extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bttSalvarReceitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSalvarReceitaActionPerformed
+        resultado receita = new receita();
+        if (!txtValorReceita.getText().isEmpty()){
+            receita.setValor(Float.parseFloat(txtValorReceita.getText()));
+        }
+        if (!txtAno.getText().isEmpty()){
+            receita.setAno(Integer.parseInt(txtAno.getText()));
+        }
+        receita.setMes(jcboMes.getSelectedIndex() + 1);
+        receita.setTipo(jcboTipoReceita.getSelectedIndex() + 1);
+        receita objetoenvia = new receita();
+        objetoenvia.inserir(receita);
+        
+    }//GEN-LAST:event_bttSalvarReceitaActionPerformed
 
     /**
      * @param args the command line arguments

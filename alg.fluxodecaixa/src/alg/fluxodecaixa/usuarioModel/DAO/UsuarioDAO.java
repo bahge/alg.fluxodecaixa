@@ -14,9 +14,10 @@ public class UsuarioDAO {
         // Inicia a conexão
         ConBD conn = new ConBD();
     }
-    public int logar(Usuario usuario) {
+    public int[] logar(Usuario usuario) {
         Connection conexao = ConBD.getConnection();
-        int nv = -1;
+        int nv[];
+        nv = new int[2];
         if (conexao != null) {
             try {
                 Statement stm = conexao.createStatement();
@@ -29,11 +30,13 @@ public class UsuarioDAO {
                 ResultSet rs = stm.executeQuery(sqlSelect);
                 if(rs.isBeforeFirst()){
                     rs.next();
-                    nv = rs.getInt("nivel");
-                    System.out.println("Usuário Logado, nível: " + nv);
+                    nv[0] = rs.getInt("nivel");
+                    System.out.println("Usuário Logado, nível: " + nv[0]);
+                    nv[1] = rs.getInt("id");
+                    System.out.println("Usuário Logado, nível: " + nv[1]);
                 } else {
                     System.out.println("Usuário inválido");
-                    return -1;
+                    return null;
                 }
                    
             } catch (SQLException ex) {

@@ -9,6 +9,10 @@ public class Usuario {
     private String email;
     private int nivel;
     private int status;
+    
+    public Usuario Usuario(){
+        return null;
+    }
 
     public int getId() {
         return id;

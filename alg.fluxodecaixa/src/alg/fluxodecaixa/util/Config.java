@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Config {
     // Cria um instancia de propriedades
@@ -17,16 +18,16 @@ public class Config {
     // Pega a pasta do projeto
     private static String _pastaProjeto = System.getProperty("user.dir");
     // Define o arquivo de configurações
-    private static String _arquivo = "/src/br/alg/indicadores/util/config.ini";
+    private static String _arquivo = "/src/alg/fluxodecaixa/util/config.ini";
     
-    public Config() {
+    public Config() throws criaArquivoInexistente {
         try {
             // Instancia o arquivo de propriedades
             FileInputStream fin = new FileInputStream(_pastaProjeto + _arquivo);
             // Abre o arquivo
             _config.load(fin);
         } catch (FileNotFoundException ex){
-            System.out.println("Arquivo de configuração não foi encontrado");
+            throw new criaArquivoInexistente();
         }catch (IOException ex) {
             System.out.println("Erro ao importar o arquivo de configurações");
         } 
@@ -61,14 +62,14 @@ public class Config {
         }
         return false;
     }
-    
-    /*
-    
-    host=localhost
-    bdname=BDIndicadores
-    porta=5432
-    usuario=postgres
-    senha=qwaszx12
-    
-    */
+   
 }
+/*
+
+host=localhost
+bdname=BDIndicadores
+porta=5432
+usuario=postgres
+senha=qwaszx12
+
+*/

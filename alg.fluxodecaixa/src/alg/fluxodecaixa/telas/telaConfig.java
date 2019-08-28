@@ -4,9 +4,12 @@ import alg.fluxodecaixa.util.ConBD;
 import alg.fluxodecaixa.util.Config;
 import alg.fluxodecaixa.util.RoundJPassField;
 import alg.fluxodecaixa.util.RoundJTextField;
+import alg.fluxodecaixa.util.criaArquivoInexistente;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -226,22 +229,27 @@ public class telaConfig extends JFrame{
     }
     
     public void salvarConfig(){
-        Config conf = new Config();
-        boolean salvar = conf.setConfig(
+        Config conf;
+        try {
+            conf = new Config();
+            boolean salvar = conf.setConfig(
                 txthost.getText(),
                 this.txtbdname.getText(),
                 this.txtporta.getText(),
                 this.txtusuario.getText(),
                 new String(this.txtsenha.getPassword())
                 );
-        if (salvar){
-            JOptionPane.showMessageDialog(
-            null,
-            "Salvo com sucesso.",
-            "Sucesso",
-            JOptionPane.INFORMATION_MESSAGE
-        );
-            this.dispose();
+            if (salvar){
+                JOptionPane.showMessageDialog(
+                null,
+                "Salvo com sucesso.",
+                "Sucesso",
+                JOptionPane.INFORMATION_MESSAGE
+            );
+                this.dispose();
+            }
+        } catch (criaArquivoInexistente ex) {
+            Logger.getLogger(telaConfig.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

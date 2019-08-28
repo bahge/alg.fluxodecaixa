@@ -1,0 +1,24 @@
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    login VARCHAR(50),
+    senha VARCHAR(40),
+    nome VARCHAR(80),
+    email VARCHAR(100),
+    nivel SMALLINT,
+    status SMALLINT
+);
+
+INSERT INTO usuarios ( login, senha, nome, nivel, status, email )
+VALUES 
+('bahge', '123', 'Asdrubal Robledo', 0, 1, 'teste@teste.com'),
+('teste', '123', 'Longfellow Dids', 1, 1, 'teste@teste.com');
+
+CREATE TABLE resultados (
+	id serial PRIMARY KEY,
+	classificacao int,
+	tipo int,
+	valor float,
+	ano int,
+	mes int,
+	id_user int
+	);

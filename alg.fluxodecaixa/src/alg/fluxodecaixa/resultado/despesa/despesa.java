@@ -4,7 +4,8 @@ import alg.fluxodecaixa.interfaces.controleDeGastos;
 import alg.fluxodecaixa.resultado.resultado;
 
 public class despesa extends resultado implements controleDeGastos {
-
+    private int contadespesa;
+    
     @Override
     public void inserir() {
         // faça algo
@@ -15,14 +16,5 @@ public class despesa extends resultado implements controleDeGastos {
         // faça algo
     }
 
-    @Override
-    public void editar() {
-        // faça algo
-    }
-
-    @Override
-    public void apagar() {
-        // faça algo
-    }
     
 }

@@ -192,12 +192,9 @@ public void validarLogin(){
         this.setVisible(false);
     // Se nível é maior que 0 então é Usuario
     } else if (r > 0) {
-        JOptionPane.showMessageDialog(
-            null,
-            "Usuário",
-            "Sucesso",
-            JOptionPane.INFORMATION_MESSAGE
-        );
+        telaUsuario telaUser = new telaUsuario();
+        telaUser.setVisible(true);
+        this.setVisible(false);
     // Se nível é menor que 0 então o usuário não foi encontrado no 
     // Banco de dados
     } else {

@@ -5,6 +5,7 @@
  */
 package alg.fluxodecaixa.resultado.receita;
 
+import alg.fluxodecaixa.usuarioModel.Usuario;
 import alg.fluxodecaixa.util.ConBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,7 +56,34 @@ public class receitaDAO {
     }
     
     public ArrayList<receita> listar() {
-        return null;
+        ArrayList<receita> listaReceita=null;
+        Connection conexao = ConBD.getConnection();
+        if (conexao != null) {
+            try {
+                //"Código", "Tipo", "Valor", "Mes", "Ano"
+                Statement stm = conexao.createStatement();
+                String sqlSelect = "SELECT Id, tipo, valor, mes, ano  FROM resultados WHERE classificacao = 1 ORDER BY mes ASC";
+                ResultSet rs = stm.executeQuery(sqlSelect);
+                //Verifica se não é vazio
+                if (rs.isBeforeFirst()){
+                    listaReceita = new ArrayList();
+                    while (rs.next()) {
+                        receita rece = new receita();
+                        //user.setId(rs.getInt("Id"));
+                        rece.setId(rs.getInt("id"));
+                        rece.setTipo(rs.getInt("tipo"));
+                        rece.setValor(rs.getFloat("valor"));
+                        rece.setMes(rs.getInt("mes"));
+                        rece.setAno(rs.getInt("ano"));
+                        listaReceita.add(rece);
+                    }
+                }
+            return listaReceita;
+            } catch (SQLException ex) {
+                System.out.println("Erro listar receitas:" + ex.getMessage());
+            }
+        }
+        return listaReceita;
     }
     
     public boolean editar(receita editarReceita){

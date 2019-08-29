@@ -613,6 +613,7 @@ class Tela extends JInternalFrame {
             setVisible(false);
         }
     }
+    
     private void resetCampos(){
         // Apaga e desmarca todos os campos
         txtLogin.setText("");
@@ -678,7 +679,7 @@ class Tela extends JInternalFrame {
         columnModel.getColumn(5).setPreferredWidth(100);
         // Instancia o usuarioDAO para manipular o BD
         UsuarioDAO usuarioDAO = new UsuarioDAO();
-        // Cria uma array list para receber a lista de alunos e chama o método Listar
+        // Cria uma array list para receber a lista de usuarios e chama o método Listar
         ArrayList<Usuario> listaUsuarios = usuarioDAO.listar();
         // Instancia o modelo da tabela para adicionar as linhas
         DefaultTableModel tabelaModel = (DefaultTableModel) tbuser.getModel();

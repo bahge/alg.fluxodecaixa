@@ -46,7 +46,34 @@ public class despesaDAO {
     }
     
     public ArrayList<despesa> listar() {
-        return null;
+        ArrayList<despesa> listaDespesa=null;
+        Connection conexao = ConBD.getConnection();
+        if (conexao != null) {
+            try {
+                //"Código", "Tipo", "Valor", "Mes", "Ano"
+                Statement stm = conexao.createStatement();
+                String sqlSelect = "SELECT Id, tipo, valor, mes, ano  FROM resultados WHERE classificacao = 2 ORDER BY mes ASC";
+                ResultSet rs = stm.executeQuery(sqlSelect);
+                //Verifica se não é vazio
+                if (rs.isBeforeFirst()){
+                    listaDespesa = new ArrayList();
+                    while (rs.next()) {
+                        despesa desp = new despesa();
+                        //user.setId(rs.getInt("Id"));
+                        desp.setId(rs.getInt("id"));
+                        desp.setTipo(rs.getInt("tipo"));
+                        desp.setValor(rs.getFloat("valor"));
+                        desp.setMes(rs.getInt("mes"));
+                        desp.setAno(rs.getInt("ano"));
+                        listaDespesa.add(desp);
+                    }
+                }
+            return listaDespesa;
+            } catch (SQLException ex) {
+                System.out.println("Erro listar receitas:" + ex.getMessage());
+            }
+        }
+        return listaDespesa;
     }
     
     public boolean editar(despesa editarDespesa){

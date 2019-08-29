@@ -29,8 +29,9 @@
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="bttInsertReceitas" max="32767" attributes="0"/>
                   <Component id="bttInserirDespesas" alignment="0" max="32767" attributes="0"/>
-                  <Component id="bttMostrarRelatorio" max="32767" attributes="0"/>
+                  <Component id="bttRelatorioReceitas" max="32767" attributes="0"/>
                   <Component id="lblQuestion" alignment="0" pref="365" max="32767" attributes="0"/>
+                  <Component id="bttRelatorioDespesas" max="32767" attributes="0"/>
               </Group>
               <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
@@ -46,8 +47,10 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="bttInserirDespesas" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="bttMostrarRelatorio" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="33" max="32767" attributes="0"/>
+              <Component id="bttRelatorioReceitas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="bttRelatorioDespesas" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="39" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,12 +82,20 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttInserirDespesasActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="bttMostrarRelatorio">
+    <Component class="javax.swing.JButton" name="bttRelatorioReceitas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Mostrar Relat&#xf3;rio"/>
+        <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Receitas"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttMostrarRelatorioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttRelatorioReceitasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="bttRelatorioDespesas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Relat&#xf3;rio de Despesas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bttRelatorioDespesasActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

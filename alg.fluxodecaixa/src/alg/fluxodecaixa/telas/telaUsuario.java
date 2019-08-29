@@ -38,7 +38,8 @@ public class telaUsuario extends javax.swing.JFrame {
         lblQuestion = new javax.swing.JLabel();
         bttInsertReceitas = new javax.swing.JButton();
         bttInserirDespesas = new javax.swing.JButton();
-        bttMostrarRelatorio = new javax.swing.JButton();
+        bttRelatorioReceitas = new javax.swing.JButton();
+        bttRelatorioDespesas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Painel do usuário");
@@ -62,10 +63,17 @@ public class telaUsuario extends javax.swing.JFrame {
             }
         });
 
-        bttMostrarRelatorio.setText("Mostrar Relatório");
-        bttMostrarRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        bttRelatorioReceitas.setText("Relatório de Receitas");
+        bttRelatorioReceitas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bttMostrarRelatorioActionPerformed(evt);
+                bttRelatorioReceitasActionPerformed(evt);
+            }
+        });
+
+        bttRelatorioDespesas.setText("Relatório de Despesas");
+        bttRelatorioDespesas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttRelatorioDespesasActionPerformed(evt);
             }
         });
 
@@ -78,8 +86,9 @@ public class telaUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(bttInsertReceitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bttInserirDespesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bttMostrarRelatorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE))
+                    .addComponent(bttRelatorioReceitas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, 365, Short.MAX_VALUE)
+                    .addComponent(bttRelatorioDespesas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,8 +101,10 @@ public class telaUsuario extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(bttInserirDespesas)
                 .addGap(18, 18, 18)
-                .addComponent(bttMostrarRelatorio)
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(bttRelatorioReceitas)
+                .addGap(18, 18, 18)
+                .addComponent(bttRelatorioDespesas)
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -109,10 +120,15 @@ public class telaUsuario extends javax.swing.JFrame {
         tela.setVisible(true);
     }//GEN-LAST:event_bttInserirDespesasActionPerformed
 
-    private void bttMostrarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttMostrarRelatorioActionPerformed
-        telaRelatorio tela = new telaRelatorio();
+    private void bttRelatorioReceitasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttRelatorioReceitasActionPerformed
+        telaResultado tela = new telaResultado(1);
         tela.setVisible(true);
-    }//GEN-LAST:event_bttMostrarRelatorioActionPerformed
+    }//GEN-LAST:event_bttRelatorioReceitasActionPerformed
+
+    private void bttRelatorioDespesasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttRelatorioDespesasActionPerformed
+        telaResultado tela = new telaResultado(2);
+        tela.setVisible(true);
+    }//GEN-LAST:event_bttRelatorioDespesasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,7 +168,8 @@ public class telaUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bttInserirDespesas;
     private javax.swing.JButton bttInsertReceitas;
-    private javax.swing.JButton bttMostrarRelatorio;
+    private javax.swing.JButton bttRelatorioDespesas;
+    private javax.swing.JButton bttRelatorioReceitas;
     private javax.swing.JLabel lblQuestion;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,6 +9,7 @@ import alg.fluxodecaixa.resultado.despesa.despesa;
 import alg.fluxodecaixa.resultado.despesa.despesaDAO;
 import alg.fluxodecaixa.resultado.receita.receita;
 import alg.fluxodecaixa.resultado.receita.receitaDAO;
+import alg.fluxodecaixa.resultado.relatorio.relatorioDAO;
 import alg.fluxodecaixa.usuarioModel.DAO.UsuarioDAO;
 import alg.fluxodecaixa.usuarioModel.Usuario;
 import java.awt.GridLayout;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
@@ -32,12 +34,13 @@ public class telaResultado extends JFrame{
         setSize(800,600);
         setResizable(false);
         setLayout(new GridLayout(1, 1));
-        preencherTabelaResultados(tblResultados, 1);
+        preencherTabelaResultados(tblResultados, tipo);
         tblResultados.setSize(800, 500);
         tblResultados.setVisible(true);
         add(tblResultados);
         setVisible(true);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        
         switch(tipo) {
             case 1:
                 setTitle("RELATÓRIO DE RECEITAS");
@@ -46,6 +49,23 @@ public class telaResultado extends JFrame{
                 setTitle("RELATÓRIO DE DESPESAS");
                 break;
         }
+        String mensagem = "";
+        relatorioDAO relatorio = new relatorioDAO();
+        
+        float diferenca = relatorio.consultar();
+        if (diferenca > 0) {   
+                mensagem = "A situação é boa \n Você acumulou: "+diferenca+"\n Sobrou dinheiro e você está superavitario!\nO Paulo manda parabéns!";
+        } else if (diferenca < 0) {   
+                mensagem = "A situação não é boa\n  Você acumulou: "+diferenca+"\nViajou bastante é deficitário!\nA Cris vai interditar você!";
+        } else {   
+                mensagem = "A situação não melhorou nem piorou.\n Segue na mesma!\nComo tchê fala, não sofre por antecedência!";
+        }
+        JOptionPane.showMessageDialog(
+            null,
+            mensagem,
+            "Acontece!!",
+            JOptionPane.INFORMATION_MESSAGE
+        );
         
     }
     /*
@@ -144,4 +164,5 @@ public class telaResultado extends JFrame{
         }
         
     }
+  
 }

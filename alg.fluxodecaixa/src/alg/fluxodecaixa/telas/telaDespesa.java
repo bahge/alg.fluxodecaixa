@@ -5,6 +5,9 @@
  */
 package alg.fluxodecaixa.telas;
 
+import alg.fluxodecaixa.resultado.despesa.despesa;
+import alg.fluxodecaixa.resultado.resultado;
+
 /**
  *
  * @author bahge
@@ -63,6 +66,11 @@ public class telaDespesa extends javax.swing.JFrame {
         jcbTipoDespesa.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Alimentação", "Moradia", "Educação", "Saúde", "Transporte", "Outras" }));
 
         bttSalvarDespesa.setText("Salvar");
+        bttSalvarDespesa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bttSalvarDespesaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -116,6 +124,21 @@ public class telaDespesa extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bttSalvarDespesaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bttSalvarDespesaActionPerformed
+        resultado despesa = new despesa();
+        if (!txtValorDespesa.getText().isEmpty()){
+            despesa.setValor(Float.parseFloat(txtValorDespesa.getText()));
+        }
+        if (!txtAno.getText().isEmpty()){
+            despesa.setAno(Integer.parseInt(txtAno.getText()));
+        }
+        despesa.setMes(jcboMes.getSelectedIndex() + 1);
+        despesa.setTipo(jcbTipoDespesa.getSelectedIndex() + 1);
+        despesa objetoenvia = new despesa();
+        objetoenvia.inserir(despesa);
+               
+    }//GEN-LAST:event_bttSalvarDespesaActionPerformed
 
     /**
      * @param args the command line arguments

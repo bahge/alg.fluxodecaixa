@@ -10,8 +10,8 @@ CREATE TABLE usuarios (
 
 INSERT INTO usuarios ( login, senha, nome, nivel, status, email )
 VALUES 
-('bahge', '123', 'Asdrubal Robledo', 0, 1, 'teste@teste.com'),
-('teste', '123', 'Longfellow Dids', 1, 1, 'teste@teste.com');
+('paulo', '123', 'Asdrubal Robledo', 0, 1, 'teste@teste.com'),
+('cris', '123', 'Longfellow Dids', 1, 1, 'teste@teste.com');
 
 CREATE TABLE resultados (
     id serial PRIMARY KEY,

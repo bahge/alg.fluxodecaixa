@@ -64,12 +64,3 @@ public class Config {
     }
    
 }
-/*
-
-host=localhost
-bdname=BDIndicadores
-porta=5432
-usuario=postgres
-senha=qwaszx12
-
-*/
